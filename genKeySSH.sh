@@ -11,9 +11,8 @@ read -p "$email is your e-mail correct?(y or N): " mailCorrect;
 
 if [[ $mailCorrect == 'y' || $mailCorrect == 'Y' ]]
 then
-	rm -rf .ssh*;
-	mkdir .ssh;
-	key=".ssh/id_ed25519";
+	rm -rf ~/.ssh*;
+	key="$HOME/.ssh/id_ed25519";
 	ssh-keygen -f "$key" -t ed25519 -C "$email"
 	eval "$(ssh-agent -s)";
 #	read -p 'Enter PATH your key SSH: ' key;
